@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Your Purchased Cars</h2>
+  {% csrf_token %}
+  {% for car in car %}
+    <div>
+      <h3>{{ car.name }}</h3>
+      <p>Description: {{ car.description }}</p>
+      <p>Price: ${{ car.price }}</p>
+    </div>
+  {% endfor %}
+
+    <div>
+        <a class="btn btn-primary" href="{% url 'edit_profile' %}">Edit Your Profile</a>
+    </div>
+{% endblock %}
